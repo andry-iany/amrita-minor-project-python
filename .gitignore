@@ -1,1 +1,26 @@
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+# or, to ignore the checkpoints folder anywhere in the repository:
+**/.ipynb_checkpoints/
+
+# Python virtual environments
 .venv/
+env/
+venv/
+
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Operating System files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Lock files (optional, depends on project setup)
+# For a library, you might ignore these:
+Pipfile.lock
+poetry.lock
+
+# Data or log files you don't want tracked
+*.log
+*.data

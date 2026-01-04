@@ -15,3 +15,7 @@ Requires-Dist: jupyterlab==4.4.7
 Requires-Dist: ipykernel>=6.29.0
 Requires-Dist: joblib==1.4.2
 Requires-Dist: threadpoolctl==3.5.0
+Requires-Dist: kagglehub[pandas-datasets]==0.3.13
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: ipywidgets==8.1.5
+Requires-Dist: widgetsnbextension==4.0.13

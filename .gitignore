@@ -24,3 +24,5 @@ poetry.lock
 # Data or log files you don't want tracked
 *.log
 *.data
+
+data/

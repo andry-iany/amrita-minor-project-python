@@ -8,6 +8,9 @@ Requires-Dist: pandas==2.3.3
 Requires-Dist: scikit-learn==1.8.0
 Requires-Dist: scipy==1.16.3
 Requires-Dist: matplotlib==3.10.8
+Requires-Dist: tensorflow==2.20.0
+Requires-Dist: keras==3.13.0
+Requires-Dist: nltk==3.9.2
 Requires-Dist: jupyterlab==4.4.7
 Requires-Dist: ipykernel>=6.29.0
 Requires-Dist: joblib==1.4.2

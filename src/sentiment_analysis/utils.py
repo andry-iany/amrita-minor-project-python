@@ -18,8 +18,9 @@ def _get_absolute_path(relative_path):
     return absolute_path
 
 
-PATH_INITIAL_DATASET = _get_absolute_path('../data/raw/IMDB Dataset.csv')
-PATH_TRAINING_DATASET = _get_absolute_path('../data/raw/dataset-training.csv')
-PATH_UNSEEN_DATASET = _get_absolute_path('../data/raw/dataset-unseen.csv')
+PATH_TRAINING_DATASET = _get_absolute_path('../data/raw/IMDB Dataset.csv')
 
 PATH_CLEANED_TRAINING_DATASET = _get_absolute_path('../data/processed/cleaned-dataset-training.csv')
+
+PATH_MODEL = _get_absolute_path('../model/lstm_model.keras')
+

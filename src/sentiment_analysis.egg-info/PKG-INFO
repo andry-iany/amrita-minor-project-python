@@ -20,3 +20,5 @@ Requires-Dist: kagglehub[pandas-datasets]==0.3.13
 Requires-Dist: python-dotenv==1.0.1
 Requires-Dist: ipywidgets==8.1.5
 Requires-Dist: widgetsnbextension==4.0.13
+Requires-Dist: fastapi==0.115.6
+Requires-Dist: uvicorn[standard]==0.34.0

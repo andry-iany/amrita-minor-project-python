@@ -1,4 +1,9 @@
 import os
+import re
+import nltk
+
+from nltk.corpus import stopwords
+
 
 def _get_absolute_path(relative_path):
     """
@@ -28,3 +33,19 @@ PATH_GLOVE_EMBEDDINGS = _get_absolute_path('../../data/raw/glove.6B.100d.txt')
 
 PATH_TOKENIZER = _get_absolute_path('../../model/word_tokenizer.json')
 
+
+# Download NLTK stopwords if not already downloaded
+nltk.download('stopwords')
+
+def clean_text(text):
+    """ strip the html tags, remove stop words"""
+    text = re.sub(r'<.*?>', ' ', text)
+    text = re.sub(r'[^a-zA-Z]', ' ', text)
+    text = text.lower()
+    
+    # Remove stopwords and short words (len < 2)
+    stop_words = set(stopwords.words('english'))
+    words = text.split()
+    words = [w for w in words if w not in stop_words and len(w) > 1]
+    
+    return " ".join(words)

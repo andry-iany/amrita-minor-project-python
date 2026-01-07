@@ -26,3 +26,5 @@ PATH_MODEL = _get_absolute_path('../../model/lstm_model.keras')
 
 PATH_GLOVE_EMBEDDINGS = _get_absolute_path('../../data/raw/glove.6B.100d.txt')
 
+PATH_TOKENIZER = _get_absolute_path('../../model/word_tokenizer.json')
+

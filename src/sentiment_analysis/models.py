@@ -15,6 +15,7 @@ class SentimentAnalysisModel:
     def initialize(self): 
         self.__internal_load_model__()
         self.__internal_load_tokenizer__()
+        print("Model initialized successfully")
 
 
     def __internal_load_model__(self):

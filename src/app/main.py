@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+import json
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel
-
+from fastapi.middleware.cors import CORSMiddleware
 from sentiment_analysis.models import SentimentAnalysisModel
 
 
@@ -10,6 +11,15 @@ class Query(BaseModel):
 
 
 app = FastAPI(title="Sentiment analysis API")
+
+# handle cors issue
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,       
+    allow_origins=["*"],        
+    allow_methods=["*"],          
+    allow_headers=["*"],         
+)
 
 model = SentimentAnalysisModel()
 model.initialize()
@@ -27,6 +37,31 @@ def predict(data: Query):
 
     return {
         "input_received": data.texts,
+        "predictions": predictions,
+        "model_version": "1.0.0"
+    }
+
+
+@app.post("/upload/predict/")
+async def upload_file(file: UploadFile = File(...)):
+    try:
+        content = await file.read()
+        data = json.loads(content)
+
+        # validate the format
+        if not isinstance(data, list) or not all(isinstance(item, str) for item in data):
+            raise HTTPException( status_code=400, detail="Invalid format: Expected a JSON array of strings")
+        
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=400, detail="Invalid JSON format")
+    finally:
+        await file.close()
+    
+    # perform predictions
+    predictions = model.predict(data)
+
+    return {
+        "input_received": data,
         "predictions": predictions,
         "model_version": "1.0.0"
     }
